@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- *** [ FONTS ] *** -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+		<!-- *** [ FONT AWESOME ] *** -->
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" /> -->
+		<!-- *** [ BOOTSTRAP ] *** -->
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+		<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+		<!-- *** [ MY CSS ] *** -->
+		<!-- <link rel="stylesheet" href="css/12bool.css"> -->
+		<link rel="stylesheet" href="css/master.css">
+		<!-- *** [ JQUERY - Google CDN ] *** -->
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+
+		<!-- *** [ VUE.JS ] *** -->		
+		<!-- development -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<!-- production -->
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->		
+		<!-- prototyping or learning purposes -->
+		<!-- <script src="https://unpkg.com/vue@next"></script> -->
+		<!-- Boolean slides -->
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+		<!-- axios -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+
+		<!-- *** [ MY JS - (jQuery doc ready) ] *** -->
+		<!-- <script type="text/javascript" src="js/main.js"></script> -->
+		<!-- *** *** -->
+		<link rel="shortcut icon" href="#">
+		<title>vue-email-list</title>
+	</head>
+	<body>
+
+		<!------------------------------------------
+
+			JS 
+				htmlhttprequest()
+				
+				jQurey
+				$.ajax()
+				
+			Vue.js + libreria aux axios.js
+				axios.get().then()
+				una delle librerie di Vue.js
+				
+			Forma dei dati
+				JSON > JSON.parse(...json response as string...) = obj
+				XML > parsing complicato
+
+
+		Esercizio di oggi: Vue Email List
+		nome repo: vue-email-list
+		
+		Descrizione:
+		Attraverso l'apposita API di Boolean 
+		https://flynn.boolean.careers/exercises/api/random/mail 
+		
+		generare 10 indirizzi email e stamparli in pagina all'interno di una lista.
+
+		Bonus Far comparire gli indirizzi email solamente quando sono stati tutti generati.
+
+
+
+
+		------------------------------------------->
+
+
+			<div id="app" class="flex-row-co">
+
+				<div class="card">
+
+					<div>Lunghezza teorica lista: <span class="txt_1">{{listLength}}</span></div>
+					<div>Lunghezza effettiva lista: <span class="txt_1">{{emailList.length}}</span></div>
+					
+					<!-- 
+						!!! qui nel v-if,
+						!!! se metto =  , emailList.length arriva a 11  
+						!!! se metto >= , emailList.length si ferma a 10 
+					-->
+					<div class="list_box" v-if="emailList.length >= listLength">
+						<div class="txt_2">Lista completa:</div>
+						<div class="list" v-for="email in emailList">
+							<span class="txt_3">{{email}}</span>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+
+
+
+		<!-- *** [ MY JS ] *** -->
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
