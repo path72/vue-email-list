@@ -37,40 +37,6 @@
 	</head>
 	<body>
 
-		<!------------------------------------------
-
-			JS 
-				htmlhttprequest()
-				
-				jQurey
-				$.ajax()
-				
-			Vue.js + libreria aux axios.js
-				axios.get().then()
-				una delle librerie di Vue.js
-				
-			Forma dei dati
-				JSON > JSON.parse(...json response as string...) = obj
-				XML > parsing complicato
-
-
-		Esercizio di oggi: Vue Email List
-		nome repo: vue-email-list
-		
-		Descrizione:
-		Attraverso l'apposita API di Boolean 
-		https://flynn.boolean.careers/exercises/api/random/mail 
-		
-		generare 10 indirizzi email e stamparli in pagina all'interno di una lista.
-
-		Bonus Far comparire gli indirizzi email solamente quando sono stati tutti generati.
-
-
-
-
-		------------------------------------------->
-
-
 			<div id="app" class="flex-row-co">
 
 				<div class="card">
@@ -78,12 +44,7 @@
 					<div>Lunghezza teorica lista: <span class="txt_1">{{listLength}}</span></div>
 					<div>Lunghezza effettiva lista: <span class="txt_1">{{emailList.length}}</span></div>
 					
-					<!-- 
-						!!! qui nel v-if,
-						!!! se metto =  , emailList.length arriva a 11  
-						!!! se metto >= , emailList.length si ferma a 10 
-					-->
-					<div class="list_box" v-if="emailList.length >= listLength">
+					<div class="list_box" v-if="emailList.length == listLength">
 						<div class="txt_2">Lista completa:</div>
 						<div class="list" v-for="email in emailList">
 							<span class="txt_3">{{email}}</span>
@@ -93,9 +54,6 @@
 				</div>
 
 			</div>
-
-
-
 
 		<!-- *** [ MY JS ] *** -->
 		<script type="text/javascript" src="js/main.js"></script>

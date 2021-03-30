@@ -15,20 +15,15 @@ var app = new Vue(
 
 				setTimeout(()=>{
 
+					/**
+					 * il ciclo for fa tempo a terminare 
+					 * lasciando in coda i risultati dei axios.get(),
+					 * prima che venga attivato il primo axios.then()
+					 * (la lunghezza dell'array è sempre zero fino al primo axios.then())
+					 */
 					for(let i=0; i<this.listLength; i++) {
 						this.addRndEmailToList();
-
-						// !!! qui la lista ha sempre lunghezza 0 (anche aspettando il prossimo update) !!!
-						this.$nextTick(()=>{
-							console.log('buildEmailList > for > lunghezza: '+this.emailList.length);
-						});
-
 					}
-
-					// !!! qui la lista ha sempre lunghezza 0 (anche aspettando il prossimo update) !!!
-					this.$nextTick(()=>{
-						console.log('buildEmailList > lunghezza: '+this.emailList.length);
-					});
 
 				},3000);
 
@@ -38,15 +33,7 @@ var app = new Vue(
 					.get('https://flynn.boolean.careers/exercises/api/random/mail')
 					.then((resp) => {
 						this.emailList.push(resp.data.response);
-
-						// !!! qui è l'unico posto dove la lista ha lunghezza diversa da zero !!!
-						console.log('#'+this.counter+' '+resp.data.response+' length='+this.emailList.length); this.counter++;
 					});
-
-				// !!! qui la lista ha sempre lunghezza 0 (anche aspettando il prossimo update) !!!
-				this.$nextTick(()=>{
-					console.log('addRndEmailToList > lunghezza: '+this.emailList.length);
-				});
 			}
 		},
 		created() {
@@ -55,11 +42,6 @@ var app = new Vue(
 		mounted() {
 
 			this.buildEmailList();
-
-			// !!! qui la lista ha sempre lunghezza 0 (anche aspettando il prossimo update) !!!
-			this.$nextTick(()=>{
-				console.log('mounted > lunghezza: '+this.emailList.length);
-			});
 
 		}
 	}
